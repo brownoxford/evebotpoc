@@ -1,0 +1,17 @@
+# Compose file for local development
+version: "3.6"
+
+services:
+  evebotpoc:
+    image: evebotpoc
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: runtime
+    # Docker compose automatically pulls these values from a `.env` file in the
+    # directory from which `docker-compose` was run.
+    environment:
+      - DISCORD_CLIENT_ID
+      - DISCORD_CLIENT_TOKEN
+      - DISCORD_TOKEN
+      - NODE_ENV
